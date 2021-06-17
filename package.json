@@ -1,0 +1,24 @@
+{
+  "name": "node-api-postgres",
+  "version": "1.0.0",
+  "description": "Small toy app for configuring NodeJS + ExpressJS to work with Postgresql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Haz-git/node-api-postgres.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Haz-git/node-api-postgres/issues"
+  },
+  "homepage": "https://github.com/Haz-git/node-api-postgres#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.6.0"
+  }
+}
