@@ -1,31 +1,32 @@
 const Pool = require('pg').Pool;
 
 const pool = new Pool({
-    user: 'me',
-    host: 'localhost',
-    database: 'api',
-    password: 'password',
-    port: 5432,
+    user: process.env.DATABASE_USER,
+    host: process.env.DATABASE_HOST,
+    database: process.env.DATABASE_NAME,
+    password: process.env.DATABASE_PASSWORD,
+    port: process.env.DATABASE_PORT,
+    ssl: true,
 });
 
 //Get all users:
-// const getUsers = (request, response) => {
-//     pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
-//         if (error) throw error;
+const getUsers = (request, response) => {
+    pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+        if (error) throw error;
 
-//         response.status(200).json(results.rows);
-//     });
-// }
+        response.status(200).json(results.rows);
+    });
+}
 
 //Get all user but with async/await:
-const getUsers = async (request, response) => {
-    try {
-        let result = await pool.query('SELECT * FROM users ORDER BY id ASC');
-        if (result) response.status(200).json(result.rows);
-    } catch(err) {
-        throw new err;
-    }
-}
+// const getUsers = async (request, response) => {
+//     try {
+//         let result = await pool.query('SELECT * FROM users ORDER BY id ASC');
+//         if (result) response.status(200).json(result.rows);
+//     } catch(err) {
+//         throw new err;
+//     }
+// }
 
 //Get a single user by ID:
 const getUserById = (request, response) => {
