@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 // const bodyParser = require('body-parser'); <- This is deprecated.
 const app = express();
@@ -15,6 +16,7 @@ app.use(express.urlencoded({
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API '});
 });
+
 
 //New test queries
 app.get('/users', db.getUsers)
